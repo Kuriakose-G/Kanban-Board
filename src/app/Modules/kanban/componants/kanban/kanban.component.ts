@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
+import { PlanListComponent } from "../../../plan/plan-list/plan-list.component";
+import { SchedulesListComponent } from "../../../schedules/schedules-list/schedules-list.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-kanban',
   standalone: true,
-  imports: [],
+  imports: [PlanListComponent, SchedulesListComponent, CommonModule],
   templateUrl: './kanban.component.html',
   styleUrl: './kanban.component.css'
 })
 export class KanbanComponent {
+
+  selectedTab: string = 'schedules';
+
+  selectTab(tab: string): void {
+    this.selectedTab = tab;
+  }
 
 }
