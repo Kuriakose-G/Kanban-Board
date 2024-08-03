@@ -1,6 +1,7 @@
 <div class="tab-container">
   <button (click)="selectTab('schedules')" [class.active]="selectedTab === 'schedules'">Schedules List</button>
   <button (click)="selectTab('plans')" [class.active]="selectedTab === 'plans'">Schedule Plan List</button>
+  <button (click)="selectTab('manager')" [class.active]="selectedTab === 'manager'">Manager</button>
 </div>
 
 <div class="content">
@@ -9,5 +10,8 @@
   </div>
   <div *ngIf="selectedTab === 'plans'" class="plan">
     <app-plan-list></app-plan-list>
+  </div>
+  <div *ngIf="selectedTab === 'manager'" class="manager">
+    <app-home></app-home>
   </div>
 </div>
