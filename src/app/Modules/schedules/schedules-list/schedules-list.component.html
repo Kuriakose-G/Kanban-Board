@@ -1,23 +1,23 @@
 <div class="list-container">
-    <h1>Schedules List</h1>
-    <div class="list">
-      <div *ngIf="allSchedules$ | async as schedules; else loading">
-        <div *ngFor="let dat of schedules; let i = index" class="schedule-item" [style.--delay]="i">
-          <p class="schedule-title">{{ dat.Title }}</p>
-          <p class="schedule-description">{{ dat.Description }}</p>
-          <p class="schedule-due-date">{{ dat.DueDate }}</p>
-          <p [ngClass]="{
-            'priority-high': dat.Priority === 'High',
-            'priority-medium': dat.Priority === 'Medium',
-            'priority-low': dat.Priority === 'Low'
-          }" class="schedule-priority">{{ dat.Priority }}</p>
-          <p class="schedule-status">{{ dat.Status }}</p>
-          <p class="schedule-assigned-to">{{ dat.AssignedTo }}</p>
-        </div>
+  <h1>Schedules List</h1>
+  <div class="list">
+    <div *ngIf="allSchedules$ | async as schedules; else loading">
+      <div *ngFor="let schedule of schedules; let i = index" class="schedule-item" [style.--delay]="i">
+        <p class="schedule-title">{{ schedule.Job.JobTitle }}</p>
+        <p class="schedule-description">{{ schedule.Jobsite?.Location }}, {{ schedule.Jobsite?.City }}</p>
+        <p class="schedule-due-date">Start: {{ schedule.Job?.StartDate | date:'short' }}</p>
+        <p class="schedule-due-date">End: {{ schedule.Job.EndDate | date:'short' }}</p>
+        <p [ngClass]="{
+          'priority-high': schedule.PriorityID === 1,
+          'priority-medium': schedule.PriorityID === 2,
+          'priority-low': schedule.PriorityID === 3
+        }" class="schedule-priority">{{ getPriorityLabel(schedule.PriorityID) }}</p>
+        <p class="schedule-status">{{ schedule.Job.JobStatus }}</p>
+        <p class="schedule-assigned-to">{{ schedule.Customer.Name }}</p>
       </div>
-      <ng-template #loading>
-        <p class="loading">Loading...</p>
-      </ng-template>
     </div>
+    <ng-template #loading>
+      <p class="loading">Loading...</p>
+    </ng-template>
   </div>
-  
+</div>

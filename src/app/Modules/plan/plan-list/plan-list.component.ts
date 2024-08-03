@@ -18,4 +18,17 @@ export class PlanListComponent implements OnInit{
   ngOnInit(): void {
     this.allPlans$ = this.service.getPlans()
    }
+
+   getPriorityLabel(priorityId: number): string {
+    switch (priorityId) {
+      case 1:
+        return 'High';
+      case 2:
+        return 'Medium';
+      case 3:
+        return 'Low';
+      default:
+        return 'None';
+    }
+  }
 }

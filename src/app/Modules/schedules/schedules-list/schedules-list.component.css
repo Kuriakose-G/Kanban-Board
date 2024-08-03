@@ -1,133 +1,132 @@
 /* Page Background */
 :host {
-    display: block;
-    background-color: #2c3e50; /* Dark background color */
-    padding: 20px;
-    min-height: 100vh;
+  display: block;
+  background-color: #2c3e50; /* Dark background color */
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Container Styles */
+.list-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ecf0f1; /* Light background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+h1 {
+  text-align: center;
+  color: #34495e;
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+/* Individual Schedule Item Styles */
+.schedule-item {
+  display: grid;
+  grid-template-columns: 1.5fr 2.5fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  opacity: 0;
+  animation-delay: calc(var(--delay) * 100ms);
+}
+
+.schedule-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Delay Animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
-  
-  /* Container Styles */
-  .list-container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #ecf0f1; /* Light background color */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Styles */
+.schedule-item p {
+  margin: 0;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.schedule-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #007bff;
+  white-space: normal; /* Display full title */
+}
+
+/* Description Styles */
+.schedule-description {
+  color: #555;
+  font-style: italic;
+}
+
+/* Due Date Styles */
+.schedule-due-date {
+  color: #333;
+}
+
+/* Priority Styles */
+.schedule-priority {
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+  color: white;
+}
+
+.priority-high {
+  background-color: #dc3545;
+}
+
+.priority-medium {
+  background-color: #ffc107;
+}
+
+.priority-low {
+  background-color: #28a745;
+}
+
+/* Status Styles */
+.schedule-status {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Assigned To Styles */
+.schedule-assigned-to {
+  color: #777;
+}
+
+/* Loading Text Style */
+.loading {
+  text-align: center;
+  color: #777;
+  font-size: 1.2em;
+  animation: pulse 1s infinite;
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
   }
-  
-  /* Heading Styles */
-  h1 {
-    text-align: center;
-    color: #34495e;
-    margin-bottom: 20px;
-    font-size: 2em;
-    font-weight: bold;
+  50% {
+    opacity: 1;
   }
-  
-  /* Individual Schedule Item Styles */
-  .schedule-item {
-    display: grid;
-    grid-template-columns: 1.5fr 2.5fr 1fr 1fr 1fr 1fr;
-    align-items: center;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    animation: fadeIn 0.5s ease-in-out forwards;
-    opacity: 0;
-    animation-delay: calc(var(--delay) * 100ms);
+  100% {
+    opacity: 0.5;
   }
-  
-  .schedule-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Delay Animation */
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-  
-  /* Text Styles */
-  .schedule-item p {
-    margin: 0;
-    padding: 5px;
-    overflow: hidden;
-  }
-  
-  .schedule-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #007bff;
-    white-space: normal; /* Display full title */
-  }
-  
-  /* Description Styles */
-  .schedule-description {
-    color: #555;
-    font-style: italic;
-  }
-  
-  /* Due Date Styles */
-  .schedule-due-date {
-    color: #333;
-  }
-  
-  /* Priority Styles */
-  .schedule-priority {
-    padding: 5px;
-    border-radius: 3px;
-    text-align: center;
-    color: white;
-  }
-  
-  .priority-high {
-    background-color: #dc3545;
-  }
-  
-  .priority-medium {
-    background-color: #ffc107;
-  }
-  
-  .priority-low {
-    background-color: #28a745;
-  }
-  
-  /* Status Styles */
-  .schedule-status {
-    color: #333;
-    font-weight: bold;
-  }
-  
-  /* Assigned To Styles */
-  .schedule-assigned-to {
-    color: #777;
-  }
-  
-  /* Loading Text Style */
-  .loading {
-    text-align: center;
-    color: #777;
-    font-size: 1.2em;
-    animation: pulse 1s infinite;
-  }
-  
-  /* Loading Animation */
-  @keyframes pulse {
-    0% {
-      opacity: 0.5;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.5;
-    }
-  }
-  
+}

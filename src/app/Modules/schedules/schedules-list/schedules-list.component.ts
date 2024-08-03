@@ -19,4 +19,17 @@ export class SchedulesListComponent implements OnInit{
     this.allSchedules$ = this.service.getSchedules();
    }
 
+   getPriorityLabel(priorityId: number): string {
+    switch (priorityId) {
+      case 1:
+        return 'High';
+      case 2:
+        return 'Medium';
+      case 3:
+        return 'Low';
+      default:
+        return 'None';
+    }
+  }
+
 }
